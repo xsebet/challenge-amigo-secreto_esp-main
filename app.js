@@ -2,6 +2,7 @@
 //En el trello salia como array
 let amigos = [];
 let listaNumerosSorteado = [];
+
 function agregarAmigo () {
     let nroRamdon = generarNumeroSecreto ();
     let Nombre = document.getElementById("amigo").value;
@@ -31,29 +32,21 @@ function generarNumeroSecreto () {
         }
 };
 
-function AsignatTextoElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento).value;
-    elementoHTML.innerHTML=texto;
-};
-
 function limpiarCaja () {
     document.querySelector ('#amigo').value ='';
 }; 
 
 function sortearAmigo() {
-if (amigos.length === 0) {
-alert("No hay amigos disponibles para sortear.");
-return;
-}
-
-let indiceAleatorio = Math.floor(Math.random() * amigos.length);
-
-let nombreSorteado = amigos[indiceAleatorio][1];
-
-let ulResultado = document.getElementById("resultado");
-ulResultado.innerHTML = "";                    
-ulResultado.innerHTML = `<li>${nombreSorteado}</li>`;
-mostrarListaAmigos()
+    if (amigos.length === 0) {
+        alert("No hay amigos disponibles para sortear.");
+        return;
+    }
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    let nombreSorteado = amigos[indiceAleatorio][1];
+    let ulResultado = document.getElementById("resultado");
+    ulResultado.innerHTML = "";                    
+    ulResultado.innerHTML = `<li>${nombreSorteado}</li>`;
+    mostrarListaAmigos()
 
 };
 
